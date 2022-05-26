@@ -4,7 +4,7 @@ from abc import abstractmethod
 import numpy as np
 import torch
 from numpy import inf
-from models.models import MetaLearning
+from model.models import MetaLearning
 import torch.nn.functional as F
 
 class BaseTrainer(object):
@@ -51,7 +51,7 @@ class BaseTrainer(object):
 
         #if args.resume is not None:
             #args.resume = '/home/ywu10/Documents/R2GenCMN/results/iu_xray/model_best.pth'
-        #self._resume_checkpoint(args.resume)
+        self._resume_checkpoint(args.resume)
 
 
     @abstractmethod
@@ -72,7 +72,7 @@ class BaseTrainer(object):
             # print logged informations to the screen
             for key, value in log.items():
                 self.logger.info('\t{:15s}: {}'.format(str(key), value))
-
+            break
             if self.best_recorder['test']['test_BLEU_1']>log['test_BLEU_1']:
                 self._save_checkpoint(epoch, save_best=True)
             else:
@@ -165,7 +165,7 @@ class BaseTrainer(object):
         resume_path = str(resume_path)
         #resume_path = '/home/ywu10/Documents/R2GenCMN/models/model_iu_xray.pth'
         #resume_path = '/home/ywu10/Documents/R2GenCMN/models/model_mimic_cxr.pth'
-        resume_path = '/home/ywu10/Documents/R2GenCMN/results/iu_xray/model_best.pth'
+        resume_path = '/home/ywu10/Documents/R2GenCMN/results/iu_xray/best1.pth'
         self.logger.info("Loading checkpoint: {} ...".format(resume_path))
         checkpoint = torch.load(resume_path)
         self.start_epoch = checkpoint['epoch'] + 1
@@ -187,7 +187,7 @@ class Trainer(BaseTrainer):
     def _train_epoch(self, epoch):
 
         train_loss = 0
-
+        '''
         self.model.train()
         count = 0
         for batch_idx, (images_id, images, reports_ids, reports_masks,_, \
@@ -261,7 +261,7 @@ class Trainer(BaseTrainer):
                 self.model.load_state_dict(lm_param)
 
         print(f'rl train:{count/len(self.train_dataloader)}')
-     
+        '''
         log = {'train_loss': train_loss / len(self.train_dataloader)}
 
         self.model.eval()

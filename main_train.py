@@ -3,7 +3,7 @@ import argparse
 import numpy as np
 import torch
 
-from models.models import BaseCMNModel
+from model.models import BaseCMNModel
 from modules.dataloader2 import R2DataLoader
 from modules.loss import compute_loss
 from modules.metrics import compute_scores
