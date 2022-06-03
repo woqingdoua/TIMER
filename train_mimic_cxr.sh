@@ -1,8 +1,8 @@
-python main_train.py \
+python main_train2.py \
     --dataset_name mimic_cxr \
     --max_seq_length 100 \
     --threshold 10 \
-    --epochs 30 \
+    --epochs 50 \
     --batch_size 16 \
     --lr_ve 1e-4 \
     --lr_ed 5e-4 \
@@ -14,7 +14,5 @@ python main_train.py \
     --cmm_dim 512 \
     --seed 9153 \
     --beam_size 3 \
-    --threshold 10  \
     --save_dir results/mimic_cxr/ \
     --log_period 1000
-

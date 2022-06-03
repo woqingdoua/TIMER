@@ -72,7 +72,8 @@ class BaseTrainer(object):
             # print logged informations to the screen
             for key, value in log.items():
                 self.logger.info('\t{:15s}: {}'.format(str(key), value))
-            break
+            #break
+            '''
             if self.best_recorder['test']['test_BLEU_1']>log['test_BLEU_1']:
                 self._save_checkpoint(epoch, save_best=True)
             else:
@@ -104,9 +105,9 @@ class BaseTrainer(object):
                         self.early_stop))
                     break
                     
-            if epoch % self.save_period == 0:
-                self._save_checkpoint(epoch, save_best=best)
-            '''
+            #if epoch % self.save_period == 0:
+            #    self._save_checkpoint(epoch, save_best=best)
+
 
     def _record_best(self, log):
         improved_val = (self.mnt_mode == 'min' and log[self.mnt_metric] <= self.best_recorder['val'][
@@ -142,7 +143,7 @@ class BaseTrainer(object):
                 "Warning: The number of GPU\'s configured to use is {}, but only {} are available " "on this machine.".format(
                     n_gpu_use, n_gpu))
             n_gpu_use = n_gpu
-        device = torch.device('cuda:1' if n_gpu_use > 0 else 'cpu')
+        device = torch.device('cuda:0' if n_gpu_use > 0 else 'cpu')
         list_ids = list(range(n_gpu_use))
         return device, list_ids
 
@@ -187,7 +188,7 @@ class Trainer(BaseTrainer):
     def _train_epoch(self, epoch):
 
         train_loss = 0
-        '''
+
         self.model.train()
         count = 0
         for batch_idx, (images_id, images, reports_ids, reports_masks,_, \
@@ -237,7 +238,7 @@ class Trainer(BaseTrainer):
                 output,_ = self.model(images2, mode='sample')
                 reports = self.model.tokenizer.decode_batch(output.cpu().numpy())
                 ground_truths = self.model.tokenizer.decode_batch(reports_ids2[:, 1:].cpu().numpy())
-                rl_reward = torch.tensor(self.reward(ground_truths,reports)).cuda(1)
+                rl_reward = torch.tensor(self.reward(ground_truths,reports)).cuda(0)
 
             self.model.load_state_dict(origin_param)
             self.metarl_opt.zero_grad()
@@ -261,7 +262,7 @@ class Trainer(BaseTrainer):
                 self.model.load_state_dict(lm_param)
 
         print(f'rl train:{count/len(self.train_dataloader)}')
-        '''
+
         log = {'train_loss': train_loss / len(self.train_dataloader)}
 
         self.model.eval()
