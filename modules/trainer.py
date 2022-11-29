@@ -329,14 +329,14 @@ class Trainer(BaseTrainer):
         score = 2 * precision * recall / (precision+recall)
         return np.sum(np.nan_to_num(score))
 
-    def imbalanced_eval(self,pre,tgt,):
+    def imbalanced_eval(self,pre,tgt,n):
 
         #words = dict(sorted(dict(self.model.tokenizer.counter).items(), key=lambda x: x[1]))
         words = [w for w in self.model.tokenizer.token2idx][:-2]
         recall_ = []
         precision_ = []
         right_ = []
-        gap = len(words)//8
+        gap = len(words)//n
         for index in range(0,len(words)-gap,gap):
             right = 0
             recall = 0
