@@ -1,6 +1,6 @@
 # R2GenCMN
 
-This is the implementation of [Cross-modal Memory Networks for Radiology Report Generation](https://aclanthology.org/2021.acl-long.459/) at ACL-IJCNLP-2021.
+This is the implementation of [Token Imbalance Adaptation for Radiology Report Generation](https://aclanthology.org/2021.acl-long.459/) at ACL-IJCNLP-2021.
 
 ## Citations
 
