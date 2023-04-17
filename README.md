@@ -1,21 +1,12 @@
 # R2GenCMN
 
-This is the implementation of [Token Imbalance Adaptation for Radiology Report Generation](https://aclanthology.org/2021.acl-long.459/) at ACL-IJCNLP-2021.
+This is the implementation of [Token Imbalance Adaptation for Radiology Report Generation](https://arxiv.org/user/) at CHIL-2023.
 
 ## Citations
 
-If you use or extend our work, please cite our paper at ACL-IJCNLP-2021.
+If you use or extend our work, please cite our paper at CHIL-2023.
 ```
-@inproceedings{chen-acl-2021-r2gencmn,
-    title = "Generating Radiology Reports via Memory-driven Transformer",
-    author = "Chen, Zhihong and
-      Shen, Yaling  and
-      Song, Yan and
-      Wan, Xiang",
-    booktitle = "Proceedings of the Joint Conference of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing",
-    month = aug,
-    year = "2021",
-}
+Bibtex
 ```
 
 ## Requirements
@@ -24,7 +15,7 @@ If you use or extend our work, please cite our paper at ACL-IJCNLP-2021.
 - `torchvision==0.8.2`
 - `opencv-python==4.4.0.42`
 
-## Download R2GenCMN
+## Download TIMER
 You can download the models we trained for each dataset from [here](https://github.com/zhjohnchan/R2GenCMN/blob/main/data/r2gencmn.md).
 
 ## Datasets
@@ -49,6 +40,7 @@ Run `bash test_iu_xray.sh` to test a model on the IU X-Ray data.
 
 Run `bash test_mimic_cxr.sh` to test a model on the MIMIC-CXR data.
 
-## Visualization
+## Contacts
+Because the experimental datasets are too large to share all of them. Please send any requests or questions to my email: [ywu10@memphis.edu](ywu10@memphis.edu).
 
-Run `bash plot_mimic_cxr.sh` to visualize the attention maps on the MIMIC-CXR data.
+
