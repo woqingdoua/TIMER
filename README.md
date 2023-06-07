@@ -7,7 +7,14 @@ This is the implementation of [Token Imbalance Adaptation for Radiology Report G
 
 If you use or extend our work, please cite our paper at CHIL-2023.
 ```
-Bibtex
+@misc{wu2023token,
+      title={Token Imbalance Adaptation for Radiology Report Generation}, 
+      author={Yuexin Wu and I-Chan Huang and Xiaolei Huang},
+      year={2023},
+      eprint={2304.09185},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
 ```
 
 ## Requirements
