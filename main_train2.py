@@ -3,7 +3,7 @@ import argparse
 import numpy as np
 import torch
 
-from model.models import BaseCMNModel
+from model.models import BaseCMNModel, R2GenModel
 from modules.dataloaders import R2DataLoader
 from modules.loss import compute_loss
 from modules.metrics import compute_scores
@@ -121,8 +121,10 @@ def main():
     test_dataloader = R2DataLoader(args, tokenizer, split='test', shuffle=False)
 
     # build model architecture
-    model = BaseCMNModel(args, tokenizer)
-    model2 = BaseCMNModel(args, tokenizer)
+    #model = BaseCMNModel(args, tokenizer)
+    #model2 = BaseCMNModel(args, tokenizer)
+    model = R2GenModel(args, tokenizer)
+    model2 = R2GenModel(args, tokenizer)
 
     # get function handles of loss and metrics
     criterion = compute_loss
