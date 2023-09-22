@@ -4,6 +4,7 @@ import torch.nn as nn
 
 from modules.base_cmn import BaseCMN
 from modules.visual_extractor import VisualExtractor
+from modules.encoder_decoder import EncoderDecoder
 
 class R2GenModel(nn.Module):
     def __init__(self, args, tokenizer):
