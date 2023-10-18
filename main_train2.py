@@ -58,6 +58,11 @@ def parse_agrs():
     parser.add_argument('--cmm_dim', type=int, default=512, help='the dimension of cmm dimension.')
     parser.add_argument('--rm_num_slots', type=int, default=3, help='the number of memory slots.')
 
+     # for Relational Memory
+    parser.add_argument('--rm_num_slots', type=int, default=3, help='the number of memory slots.')
+    parser.add_argument('--rm_num_heads', type=int, default=8, help='the numebr of heads in rm.')
+    parser.add_argument('--rm_d_model', type=int, default=512, help='the dimension of rm.')
+
     # Sample related
     parser.add_argument('--sample_method', type=str, default='beam_search', help='the sample methods to sample a report.')
     parser.add_argument('--beam_size', type=int, default=3, help='the beam size when beam searching.')
