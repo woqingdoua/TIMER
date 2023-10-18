@@ -110,6 +110,7 @@ def parse_agrs():
     parser.add_argument('--topk', type=int, default=32, help='the number of k.')
     parser.add_argument('--cmm_size', type=int, default=2048, help='the numebr of cmm size.')
     parser.add_argument('--cmm_dim', type=int, default=512, help='the dimension of cmm dimension.')
+    parser.add_argument('--rm_num_slots', type=int, default=3, help='the number of memory slots.')
 
     # Sample related
     parser.add_argument('--sample_method', type=str, default='beam_search', help='the sample methods to sample a report.')
